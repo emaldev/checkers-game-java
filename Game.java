@@ -11,8 +11,16 @@ public class Game {
         players[1] = new Player("Player 2", "red");
         currentPlayer = players[0];
     }
+    public void switchTurn(){
+        if(currentPlayer == players[0]){
+            currentPlayer = players[1];
+        }else{
+            currentPlayer = players[0];
+        }
+    }
     
     public void start() {
+        switchTurn();
         board.displayBoard();
         board.movePiece(2, 1, 3, 2);
         System.out.println("After move: ");

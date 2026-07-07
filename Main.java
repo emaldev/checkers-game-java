@@ -4,9 +4,11 @@ public class Main {
         myTile.displayTile();
         Board myBoard = new Board();
         myBoard.initPieces();
-        
-        Game myGame = new Game();
+         Game myGame = new Game();
         myGame.start();
+      
+        
+       
     }
     
 }

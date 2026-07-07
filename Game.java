@@ -14,6 +14,9 @@ public class Game {
     
     public void start() {
         board.displayBoard();
+        board.movePiece(2, 1, 3, 2);
+        System.out.println("After move: ");
+        board.displayBoard();
         System.out.println("Current player: " + currentPlayer.getName() + "(" + currentPlayer.getColor() + ")");
     }
     

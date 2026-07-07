@@ -72,6 +72,44 @@ public class Board {
     from.setPiece(null);
     return true;
 }
+public boolean jumpPiece(int fromRow, int fromCol, int toRow, int toCol){
+    Tile from = tiles[fromRow][fromCol];
+    Tile to = tiles[toRow][toCol];
+
+    if(from.isEmpty()){
+        System.out.println("No piece at the selected position!");
+        return false;
+    }
+    if(!to.isEmpty()){
+        System.out.println("Target position is not empty!");
+        return false;
+    }
+    int rowDiff = Math.abs(toRow - fromRow);
+    int colDiff = Math.abs(toCol - fromCol);
+    if(rowDiff != 2 || colDiff != 2){
+        System.out.println("Invalid jump! You can only jump tow squares diagonally.");
+        return false;
+    }
+    int midRow = (fromRow + toRow) / 2;
+    int midCol = (fromCol + toCol) / 2;
+    Tile mid = tiles[midRow][midCol];
+    
+
+    if(mid.isEmpty()){
+        System.out.println("No piece to capture!");
+        return false;
+    }
+    
+    if(mid.getPiece().equals(from.getPiece())){
+        System.out.println("You connot jump over your own piece!");
+        return false;
+    }
+
+    to.setPiece(from.getPiece());
+    from.setPiece(null);
+    mid.setPiece(null);
+    return true;
+}
     
 }
 

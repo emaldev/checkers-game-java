@@ -110,6 +110,19 @@ public boolean jumpPiece(int fromRow, int fromCol, int toRow, int toCol){
     mid.setPiece(null);
     return true;
 }
+// میتود پرش 
+public void setupJumpTest(){
+    // پاک کردن صفحه 
+    for(int row = 0; row < 8; row++){
+        for(int col = 0; col < 8; col++){
+            tiles[row][col].setPiece(null);
+        }
+    }
+    //قرار دادن مهره ها برا تست پرش 
+    tiles[2][1].setPiece("b");// مهره سیاه 
+    tiles[3][2].setPiece("r");// مهره قرمز 
+    // خانه (3و4) خالی می ماند 
+}
     
 }
 

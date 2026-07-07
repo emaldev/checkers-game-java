@@ -6,7 +6,7 @@ public class Game {
       // اضافه کردن بازی کنان و نوبت دهی برای ایشان 
     public Game() {
         board = new Board();
-        board.initPieces();
+        board.setupJumpTest();// جایگزنی میتود پرش 
         players = new Player[2];
         players[0] = new Player("Player 1", "black");
         players[1] = new Player("Player 2", "red");

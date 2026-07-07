@@ -1,0 +1,20 @@
+public class Game {
+    private Board board;
+    private Player[] players;
+    private Player currentPlayer;
+      // اضافه کردن بازی کنان و نوبت دهی برای ایشان 
+    public Game() {
+        board = new Board();
+        board.initPieces();
+        players = new Player[2];
+        players[0] = new Player("Player 1", "black");
+        players[1] = new Player("Player 2", "red");
+        currentPlayer = players[0];
+    }
+    
+    public void start() {
+        board.displayBoard();
+        System.out.println("Current player: " + currentPlayer.getName() + "(" + currentPlayer.getColor() + ")");
+    }
+    
+}

@@ -70,6 +70,7 @@ public class Board {
 
     to.setPiece(from.getPiece());
     from.setPiece(null);
+    checkKing();
     return true;
 }
 public boolean jumpPiece(int fromRow, int fromCol, int toRow, int toCol){
@@ -108,6 +109,7 @@ public boolean jumpPiece(int fromRow, int fromCol, int toRow, int toCol){
     to.setPiece(from.getPiece());
     from.setPiece(null);
     mid.setPiece(null);
+    checkKing();
     return true;
 }
 // میتود پرش 
@@ -119,10 +121,25 @@ public void setupJumpTest(){
         }
     }
     //قرار دادن مهره ها برا تست پرش 
-    tiles[2][1].setPiece("b");// مهره سیاه 
-    tiles[3][2].setPiece("r");// مهره قرمز 
+    tiles[2][1].setPiece("b");
+    // مهره سیاه 
+    tiles[3][2].setPiece("r");
+    // مهره قرمز 
     // خانه (3و4) خالی می ماند 
 }
+public void checkKing() {
+    for (int col = 0; col < 8; col++) {
+        // مهره سیاه به ردیف ۷ رسید
+        if (tiles[7][col].getPiece() != null && tiles[7][col].getPiece().equals("b")) {
+            tiles[7][col].setPiece("B"); // شاه سیاه
+        }
+        // مهره قرمز به ردیف ۰ رسید
+        if (tiles[0][col].getPiece() != null && tiles[0][col].getPiece().equals("r")) {
+            tiles[0][col].setPiece("R"); // شاه قرمز
+        }
+    }
+}
+
     
 }
 
